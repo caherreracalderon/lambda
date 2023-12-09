@@ -25,7 +25,7 @@ jobs:
           zip -r publish.zip ./*
       - name: Deploy to AWS Lambda
         run: |
-          aws lambda update-function-code --function-name ${{ vars.FUNCTION_NAME }} --zip-file fileb://publish.zip --region ${{ vars.FUNCTION_NAME }}
+          aws lambda update-function-code --function-name ${{ vars.FUNCTION_NAME }} --zip-file fileb://publish.zip --region ${{ vars.REGION }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
