@@ -1,0 +1,31 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_lambda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install dependencies and bundle code
+        env:
+          CI: true
+        run: |
+          npm ci
+          zip -r publish.zip ./*
+      - name: Deploy to AWS Lambda
+        run: |
+          aws lambda update-function-code --function-name ob-lambda-function --zip-file fileb://publish.zip --region ohio
+        env:
+          AWS_ACCESS_KEY_ID: AKIA4WNLWTTWBJ7FS5XI
+          AWS_SECRET_ACCESS_KEY: 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
