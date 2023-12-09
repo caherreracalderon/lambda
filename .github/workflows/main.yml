@@ -27,5 +27,5 @@ jobs:
         run: |
           aws lambda update-function-code --function-name ${{ vars.FUNCTION_NAME }} --zip-file fileb://publish.zip --region ${{ vars.REGION }}
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: AKIA4WNLWTTWHYXGBCJO
+          AWS_SECRET_ACCESS_KEY: 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
