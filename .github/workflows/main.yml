@@ -25,7 +25,7 @@ jobs:
           zip -r publish.zip ./*
       - name: Deploy to AWS Lambda
         run: |
-          aws lambda update-function-code --function-name ob-lambda-function --zip-file fileb://publish.zip --region ohio
+          aws lambda update-function-code --function-name ob-lambda-function --zip-file fileb://publish.zip --region us-east-2
         env:
           AWS_ACCESS_KEY_ID: AKIA4WNLWTTWBJ7FS5XI
           AWS_SECRET_ACCESS_KEY: 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
